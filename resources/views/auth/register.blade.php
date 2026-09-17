@@ -17,20 +17,32 @@
 
                     <div class="request-field">
                         <label class="request-label" for="name">Full Name</label>
-                        <input class="request-input" type="text" id="name" name="name"
+                        <input class="request-input @error('name') request-input--invalid @enderror"
+                               type="text" id="name" name="name"
                                value="{{ old('name') }}" placeholder="Juan Dela Cruz" required autofocus>
+                        @error('name')
+                            <p class="request-error">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="request-field">
                         <label class="request-label" for="email">Email Address</label>
-                        <input class="request-input" type="email" id="email" name="email"
+                        <input class="request-input @error('email') request-input--invalid @enderror"
+                               type="email" id="email" name="email"
                                value="{{ old('email') }}" placeholder="you@bjmp.gov.ph" required>
+                        @error('email')
+                            <p class="request-error">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="request-field">
                         <label class="request-label" for="password">Password</label>
-                        <input class="request-input" type="password" id="password" name="password"
+                        <input class="request-input @error('password') request-input--invalid @enderror"
+                               type="password" id="password" name="password"
                                placeholder="At least 8 characters" required>
+                        @error('password')
+                            <p class="request-error">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="request-field">

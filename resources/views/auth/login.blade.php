@@ -17,14 +17,22 @@
 
                     <div class="request-field">
                         <label class="request-label" for="email">Email Address</label>
-                        <input class="request-input" type="email" id="email" name="email"
+                        <input class="request-input @error('email') request-input--invalid @enderror"
+                               type="email" id="email" name="email"
                                value="{{ old('email') }}" placeholder="you@bjmp.gov.ph" required autofocus>
+                        @error('email')
+                            <p class="request-error">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="request-field">
                         <label class="request-label" for="password">Password</label>
-                        <input class="request-input" type="password" id="password" name="password"
+                        <input class="request-input @error('password') request-input--invalid @enderror"
+                               type="password" id="password" name="password"
                                placeholder="********" required>
+                        @error('password')
+                            <p class="request-error">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <label class="auth-form__remember">
